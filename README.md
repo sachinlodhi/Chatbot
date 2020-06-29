@@ -1,2 +1,3 @@
-#Chatbot using chatterbot library in python\n
-Contributors : @abhishekparmar123, @sachinlodhi
+**Chatbot using chatterbot library in Python**
+
+_Contributors : @abhishekparmar123, @sachinlodhi_
