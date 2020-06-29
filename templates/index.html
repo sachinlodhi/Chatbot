@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CHAT_BOT_CREATED_BY_ABHISHEK_PARMAR and Sachin Lodhi</title>
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+
+<body>
+
+    <div>
+ <h1 class="botText" style="text-align:center;"> ChatBot by Abhishek Parmar and Sachin Lodhi</h1>
+    	<div id = "chatbox">
+    		<p class="botText"><span>Hi ! I'm Your freind ANDY...</span></p>
+    	</div>
+    	<div id = "UserInput">
+    		<input id="textInput" type="text" name="msg" placeholder="Talk To ANDY.. ">
+    		<input id="buttonInput" type="submit" name="SEND" value = "Send">
+    	</div>
+    	<script type="text/javascript">
+    		function getBotResponse() 
+    		{
+    			var rawText = $("#textInput").val();
+    			var userHtml = '<p class = "userText"><span>'+ rawText + '</span></p>';
+    			$("#textInput").val("");
+    			$("#chatbox").append(userHtml);
+    			document.getElementById('UserInput').scrollIntoView({block: 'start',behavior: 'smooth'});
+    			$.get("/get", {msg: rawText}).done(function(data){
+    				var botHtml = '<p class = "botText"><span>'+ data + '</span></p>';
+    				$("#chatbox").append(botHtml);
+    				document.getElementById('UserInput').scrollIntoView({block: 'start',behavior: 'smooth'});
+
+    			});
+    		}
+    		$("#textInput").keypress(function(e){
+    			if(e.which == 13){
+    				getBotResponse();
+    			}
+    		});
+    		$("#buttonInput").click(function(){
+    			getBotResponse();
+    		})
+    	</script>
+    </div>  
+
+</body>
+</html>
